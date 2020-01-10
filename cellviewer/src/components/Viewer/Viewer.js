@@ -14,7 +14,7 @@ export default class Viewer extends Component {
         };
         this.updateInputValue = this.updateInputValue.bind(this);
         this.readCol = this.readCol.bind(this);
-        
+
         this.data0 = {
             angles: angles,
             colony: colony,
@@ -116,7 +116,7 @@ export default class Viewer extends Component {
             this.setState({
                 progress: 0
             });
-        } 
+        }
     }
 
     render() {
@@ -127,7 +127,7 @@ export default class Viewer extends Component {
                 this.data0[key] = this.data[key];
             }
             this.data0 = this.data;
-            this.slides = <Slides 
+            this.slides = <Slides
                     id = "slide"
                     {...this.data0}
             />;

@@ -1,6 +1,5 @@
 #!/bin/bash
-die() { echo "$@" >&2; exit 1;
-}
+die() { echo "$@" >&2; exit 1; }
 
 echo "Testing simulated annealing distance objective"
 

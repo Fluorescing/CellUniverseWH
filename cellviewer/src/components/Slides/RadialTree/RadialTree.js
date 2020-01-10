@@ -26,11 +26,11 @@ export default class RadialTree extends Component {
 
         var posC = this.state.posC;
         return (
-            <Container 
+            <Container
                     style={{
                         width:"50vh",
                         position:"relative",
-                        margin:"0", 
+                        margin:"0",
                         padding:"0",
                         display:"contents"}}>
                 <img
@@ -59,7 +59,7 @@ export default class RadialTree extends Component {
                     }}/>
                 <img
                     id="tree"
-                    src={this.props.src} 
+                    src={this.props.src}
                     alt="im"
                     className="image2"
                     style={{
@@ -86,7 +86,7 @@ export default class RadialTree extends Component {
                         right: "10%"
                     }}
                 />
-                
+
             </Container>
         );
     }

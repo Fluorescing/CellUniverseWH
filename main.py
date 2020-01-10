@@ -8,8 +8,8 @@ cellanneal
 The entry point for CellAnneal program.
 """
 
-import cProfile
 import argparse
+import cProfile
 import multiprocessing
 from pathlib import Path
 

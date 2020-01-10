@@ -13,5 +13,5 @@
     "bacilli.maxWidth":   9.0,  // microns
     "bacilli.minLength": 14.0,  // microns
     "bacilli.maxLength": 48.0,  // microns
-    "bacilli.distanceCostDivisor": 24  // microns 
+    "bacilli.distanceCostDivisor": 24  // microns
 }

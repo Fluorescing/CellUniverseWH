@@ -9,7 +9,7 @@ class CSVFile:
             if len(line.strip()) > 0:
                 cols = [col.strip() for col in line.split(',')]
                 self.data.append(cols)
-    
+
     def select(self, column_name, value):
         col_idx = self.cols.index(column_name)
         results = []
@@ -22,7 +22,7 @@ class CSVFile:
 class Lineage(CSVFile):
     def __init__(self, file):
         return super().__init__(file)
-    
+
     def max_frame(self):
         col_idx = self.cols.index('file')
         return max(self.data, key=lambda row: row[col_idx])[col_idx]
@@ -42,8 +42,8 @@ class Lineage(CSVFile):
 
         my_points = [(float(row[2]), float(row[3])) for row in my_last_frame_data]
         other_points = [(float(row[2]), float(row[3])) for row in other_last_frame_data]
-        for x,y in my_points:
-            (x2,y2) = min(other_points, key=lambda pt: dist(x, y, *pt))
+        for x, y in my_points:
+            (x2, y2) = min(other_points, key=lambda pt: dist(x, y, *pt))
             if dist(x, y, x2, y2) > 25:
                 print("Distance between pair of positions too big!", file=sys.stderr)
                 return False
