@@ -21,7 +21,7 @@ class CSVFile:
 
 class Lineage(CSVFile):
     def __init__(self, file):
-        return super().__init__(file)
+        super().__init__(file)
 
     def max_frame(self):
         col_idx = self.cols.index('file')
