@@ -1,18 +1,23 @@
 # Cell Viewer
+
 User Interface for Cell Universe
 
-### Usage
-#### Using Sample Data
+## Usage
+
+### Using Sample Data
+
 For only viewing, can open at https://metanovitia.github.io/cellviewer/#/.
 
 For local copy:
+
 - Requirements: npm
 - Download/clone files from simmaneal folder
 - cd into cellviewer
 - Run ```npm install```
 - Use ```npm start``` and open localhost:3000
 
-#### Using Your Own Data
+### Using Your Own Data
+
 - Requirements: Python3.7, svgwrite (installable from pip)
 - Download/clone files from simmaneal folder
 - Run simmaneal main.py code (Check Simmaneal Documentation for more info)
@@ -22,9 +27,10 @@ For local copy:
 - Drag and drop your ```[output]``` folder to the file dropzone on the website
 
 
-### Assumptions
+## Assumptions
+
 - simmaneal produce an output folder that contains at least:
-  - colony.csv 
+  - colony.csv
     - with headers: frame,name,x,y,width,length,rotation
     - sorted in ascending order according to frame number
     - each cell's name starts with a 'b'
@@ -32,7 +38,8 @@ For local copy:
   - images for each frame
     - same dimensions
 
-### Limitations
+## Limitations
+
 - Colors are limited (4)
 - Not tested with other versions of Python
 - Browsers tested : Chrome, Safari, FireFox
@@ -40,7 +47,8 @@ For local copy:
 - Bad mobile compatibility
 - Lag in more dense frames
 
-### To Do
+## To Do
+
 - Add color picker
 - Raw Image Files
 - Optimize

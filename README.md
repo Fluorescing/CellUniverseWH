@@ -1,10 +1,8 @@
-Cell Universe
-=============
+# Cell Universe
 
 Tracks the movement of cells from a video source.
 
-Initial Properties File
------------------------
+## Initial Properties File
 
 This is an example initial properties file:
 
@@ -75,13 +73,11 @@ name    pos:x   pos:y   length  rotation
 "11"    170     113     15      1.605
 ```
 
-Frames
-------
+## Frames
 
 Images must all be placed in a directory. The default is `./frames/` directory, but you can change the name as long as you input the directory in the command line. The names of the images must match `0.png`, `1.png`, `2.png`, and so on.
 
-Usage
------
+## Usage
 
 Command line help:
 
@@ -117,8 +113,7 @@ required arguments:
                         ending temperature for the simulated annealing
 ```
 
-Examples
---------
+## Examples
 
 ``` sourceCode
 python "./main.py" --start 0 --finish 13 --debug "./debug" --input "./input/frame%03d.png" --output "$TEST_DIR/output" --config "./config.json" --initial "./cells.0.csv" --temp 10 --endtemp 0.01
