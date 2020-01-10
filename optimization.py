@@ -424,6 +424,7 @@ def optimize_core(imagefile, colony, args, config):
             if args.debug and i%80 == 0:
                 synthimage = generate_synthetic_image(cellnodes, realimage.shape, greySyntheticImage)
 
+                # pylint: disable=unsubscriptable-object
                 frame = np.empty((shape[0], shape[1], 3))
                 frame[..., 0] = synthimage
                 frame[..., 1] = frame[..., 0]
@@ -452,6 +453,7 @@ def optimize_core(imagefile, colony, args, config):
     if abs(new_cost - cost) > 1e-7:
         print('WARNING: incremental cost diverged from expected cost')
 
+    # pylint: disable=unsubscriptable-object
     frame = np.empty((shape[0], shape[1], 3))
     frame[..., 0] = realimage
     frame[..., 1] = frame[..., 0]
