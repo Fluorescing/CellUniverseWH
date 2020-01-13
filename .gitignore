@@ -335,3 +335,6 @@ dask-worker-space/
 .vscode/
 *.swo
 *.swp
+regression-tests/cellviewer/debug/
+regression-tests/simanneal/debug/
+regression-tests/graysynthetic/debug/
