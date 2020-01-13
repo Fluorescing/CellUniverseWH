@@ -309,32 +309,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Images
-*.ico
-*.ai
-*.eps
-*.pdf
-*.psd
-*.jpg
-*.jpeg
-*.png
-*.tiff
-*.gif
-*.bmp
-*.svg
-
-# Videos
-*.wmv
-*.mpg
-*.mpeg
-*.mp4
-*.mov
-*.flv
-*.avi
-*.ogv
-*.ogg
-*.webm
-
 # Output directory
 [oO]utput/
 
