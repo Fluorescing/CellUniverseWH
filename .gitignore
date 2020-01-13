@@ -354,6 +354,10 @@ regression-tests/cellviewer/test/
 cellviewer*.sh
 !regression-tests/cellviewer/expected/pie.svg
 !regression-tests/cellviewer/expected/tree.svg
-.idea
-.vs
-.dask-worker-space
+.idea/
+.vs/
+.dask-worker-space/
+dask-worker-space/
+.vscode/
+*.swo
+*.swp
