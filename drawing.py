@@ -7,9 +7,9 @@ cellanneal.drawing
 Contains drawing functions.
 """
 
-import numpy as np
+from math import ceil, cos, floor, pi, sin, sqrt
 
-from math import cos, pi, sin, sqrt, floor, ceil
+import numpy as np
 
 
 def _draw_line_low(array, x0, y0, x1, y1, color):
@@ -76,6 +76,7 @@ def draw_arc(array, x, y, radius, theta0, theta1, color):
         x1 = int(radius*cos(t1) + x)
         y1 = int(radius*sin(t1) + y)
         draw_line(array, x0, y0, x1, y1, color)
+
 
 meshgrids = {}
 def circle(x, y, radius, shape):

@@ -1,18 +1,17 @@
+import math
 import random
 import time
-import math
-from math import sqrt, atan
 from itertools import chain
+from math import atan, sqrt
 
+import dask.distributed
+import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
-import matplotlib.pyplot as plt
 from scipy.ndimage import distance_transform_edt
 
 from cell import Bacilli
 from colony import CellNode, Colony
-
-import dask.distributed
 
 FONT = ImageFont.load_default()
 
@@ -20,7 +19,6 @@ debugcount = 0
 badcount = 0  # DEBUG
 is_cell = True
 is_background = False
-
 
 
 def objective(realimage, synthimage):
@@ -43,7 +41,6 @@ def generate_synthetic_image(cellnodes, shape, graySyntheticImage):
         for node in cellnodes:
             node.cell.draw(synthimage, is_cell, graySyntheticImage)
         return synthimage
-
 
 
 def load_image(imagefile):
@@ -142,10 +139,12 @@ def perturb_bacilli(node, config, imageshape):
     # push the new cell over the previous in the node
     node.push(Bacilli(cell.name, x, y, width, length, rotation))
 
+
 def split_proba(length):
     """Returns the split probability given the length of the cell."""
     # Determined empirically based on previous runs
     return math.sin((length - 14) / (2 * math.pi * math.pi)) if 14 <= length <= 45 else 0
+
 
 def bacilli_split(node, config, imageshape):
     """Split the cell and push both onto the stack for testing."""
@@ -266,6 +265,7 @@ def bacilli_combine(node, config, imageshape):
 
     return True, presplit
 
+
 def optimize_core(imagefile, colony, args, config, iterations_per_cell=2000):
     """Core of the optimization routine."""
     global debugcount, badcount  # DEBUG
@@ -357,7 +357,7 @@ def optimize_core(imagefile, colony, args, config, iterations_per_cell=2000):
                 else:
                     start_cost = np.sum(diffimage[region.top:region.bottom,
                                                 region.left:region.right]**2)
-                
+
                 # subtract the previous cell
                 node.cell.draw(diffimage, is_cell, args.graysynthetic)
 
@@ -423,6 +423,7 @@ def optimize_core(imagefile, colony, args, config, iterations_per_cell=2000):
             if args.debug and i%80 == 0:
                 synthimage = generate_synthetic_image(cellnodes, realimage.shape, args.graysynthetic)
 
+                # pylint: disable=unsubscriptable-object
                 frame_1 = np.empty((shape[0], shape[1], 3))
                 frame_1[..., 0] = (realimage - synthimage)
                 frame_1[..., 1] = frame_1[..., 0]
@@ -465,6 +466,7 @@ def optimize_core(imagefile, colony, args, config, iterations_per_cell=2000):
     if abs(new_cost - cost) > 1e-7:
         print('WARNING: incremental cost diverged from expected cost')
 
+    # pylint: disable=unsubscriptable-object
     frame = np.empty((shape[0], shape[1], 3))
     frame[..., 0] = realimage
     frame[..., 1] = frame[..., 0]
@@ -478,6 +480,7 @@ def optimize_core(imagefile, colony, args, config, iterations_per_cell=2000):
     debugimage = Image.fromarray((255*frame).astype(np.uint8))
 
     return colony, cost, debugimage
+
 
 def optimize(imagefile, lineageframes, args, config, client):
     """Optimize the cell properties using simulated annealing."""

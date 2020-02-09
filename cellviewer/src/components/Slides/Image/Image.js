@@ -55,10 +55,10 @@ export default class ImageCell extends Component {
                 (255*colors[code][0]).toString() + "," +
                 (255*colors[code][1]).toString() + "," +
                 (255*colors[code][2]).toString() + ")";
-            
+
             this.labels.push(
                 <Cell
-                key={cell[0]} k={cell[0]} color={color} 
+                key={cell[0]} k={cell[0]} color={color}
                 bottomR={window.innerHeight*0.5 + (Math.sin(this.props.angles[cell[0]])*this.props.pos*h)}
                 leftR={window.innerWidth*0.75 + (Math.cos(this.props.angles[cell[0]])*this.props.pos*w)}
                 top={(cell[2]*100/this.newImg.height).toString()+"%"}
@@ -73,14 +73,14 @@ export default class ImageCell extends Component {
                         src={this.props.srcTree}
                         src_pie={this.props.src_pie}/>
                     <Container  style={{
-                                    margin:"0", 
+                                    margin:"0",
                                     padding:"0",
                                     position:"relative",
                                     maxWidth:"50vw"
                                     }}>
                         <img
                             id="im"
-                            src={this.props.src} 
+                            src={this.props.src}
                             alt="im"
                             className="image"
                             />

@@ -19,7 +19,7 @@ export default class Cell extends Component {
     render() {
         return (
             <div>
-                <div 
+                <div
                     id={"Tooltip"+this.props.k}
                     style={{
                         position:"absolute",
@@ -29,7 +29,7 @@ export default class Cell extends Component {
                         width:"7px",
                         height:"7px"
                     }}/>
-                <div 
+                <div
                     id={"TooltipR"+this.props.k}
                     style={{
                         position:"absolute",
@@ -40,7 +40,7 @@ export default class Cell extends Component {
                         height:"7px"
                     }}/>
                 <Tooltip placement="right" isOpen={this.state.tooltipOpen} target={"Tooltip"+this.props.k} toggle={this.toggle}>
-                    <div 
+                    <div
                         style={{
                             marginLeft:"2px",
                             padding: "1px",
@@ -54,7 +54,7 @@ export default class Cell extends Component {
                     </div>
                 </Tooltip>
                 <Tooltip placement="right" isOpen={this.state.tooltipOpen} target={"TooltipR"+this.props.k} toggle={this.toggle}>
-                    <div 
+                    <div
                         style={{
                             marginLeft:"2px",
                             padding: "1px",
